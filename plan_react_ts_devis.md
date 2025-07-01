@@ -7,17 +7,17 @@
 
 ## ✅ Jour 1 – Initialiser le projet React avec TypeScript
 - [ ] Créer un nouveau projet avec Vite : `npm create vite@latest devis-generator -- --template react-ts`
-- [ ] Entrer dans le dossier : `cd devis-generator`
-- [ ] Installer les dépendances : `npm install`
-- [ ] Lancer le projet : `npm run dev`
-- [ ] Nettoyer le projet de base (supprimer assets inutiles, `App.css`, etc.)
-- [ ] Configurer un style de base (CSS ou Tailwind)
+- [ x] Entrer dans le dossier : `cd devis-generator`
+- [ x] Installer les dépendances : `npm install`
+- [ x] Lancer le projet : `npm run dev`
+- [ x] Nettoyer le projet de base (supprimer assets inutiles, `App.css`, etc.)
+- [ x] Configurer un style de base (CSS ou Tailwind)
 
 ## ✅ Jour 2 – Créer la structure de base du formulaire
-- [ ] Créer le composant `DevisForm`
-- [ ] Ajouter champs : "Nom du client", "Date", "Numéro de devis"
-- [ ] Utiliser `useState` pour gérer les valeurs saisies
-- [ ] Créer un type `DevisMetadata` (nom, date, numéro)
+- [ x] Créer le composant `DevisForm`
+- [x ] Ajouter champs : "Nom du client", "Date", "Numéro de devis"
+- [ x] Utiliser `useState` pour gérer les valeurs saisies
+- [x ] Créer un type `DevisMetadata` (nom, date, numéro)
 
 ## ✅ Jour 3 – Ajouter les lignes de devis dynamiques
 - [ ] Créer un type `LigneDevis` avec `description`, `quantité`, `prixUnitaire`
