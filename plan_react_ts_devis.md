@@ -20,20 +20,20 @@
 - [x ] Créer un type `DevisMetadata` (nom, date, numéro)
 
 ## ✅ Jour 3 – Ajouter les lignes de devis dynamiques
-- [ ] Créer un type `LigneDevis` avec `description`, `quantité`, `prixUnitaire`
-- [ ] Ajouter un bouton "Ajouter une ligne"
-- [ ] Gérer l’état des lignes avec un `useState<LigneDevis[]>`
-- [ ] Afficher dynamiquement chaque ligne avec `map`
-- [ ] Permettre la modification directe des champs
+- [x ] Créer un type `LigneDevis` avec `description`, `quantité`, `prixUnitaire`
+- [ x] Ajouter un bouton "Ajouter une ligne"
+- [ ]x Gérer l’état des lignes avec un `useState<LigneDevis[]>`
+- [ x] Afficher dynamiquement chaque ligne avec `map`
+- [ x] Permettre la modification directe des champs
 
 ## ✅ Jour 4 – Calculs automatiques (totaux)
-- [ ] Calculer le total de chaque ligne (`quantité * prix`)
-- [ ] Afficher le total de la ligne en temps réel
-- [ ] Calculer le total général automatiquement (somme des lignes)
-- [ ] Créer une fonction utilitaire `calculerTotalLigne(ligne: LigneDevis): number`
+- [ x] Calculer le total de chaque ligne (`quantité * prix`)
+- [ x] Afficher le total de la ligne en temps réel
+- [ x] Calculer le total général automatiquement (somme des lignes)
+- [x ] Créer une fonction utilitaire `calculerTotalLigne(ligne: LigneDevis): number`
 
 ## ✅ Jour 5 – Générer le devis complet (objet)
-- [ ] Créer un type `Devis` avec `metadata`, `lignes`, `total`
+- [ x] Créer un type `Devis` avec `metadata`, `lignes`, `total`
 - [ ] À chaque changement, générer un objet `Devis`
 - [ ] Afficher un aperçu lisible dans un composant `DevisPreview`
 - [ ] Ajouter un bouton "Voir devis généré" (en format JSON dans une modale ou console)
