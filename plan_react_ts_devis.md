@@ -34,8 +34,8 @@
 
 ## ✅ Jour 5 – Générer le devis complet (objet)
 - [ x] Créer un type `Devis` avec `metadata`, `lignes`, `total`
-- [ ] À chaque changement, générer un objet `Devis`
-- [ ] Afficher un aperçu lisible dans un composant `DevisPreview`
+- [x ] À chaque changement, générer un objet `Devis`
+- [x ] Afficher un aperçu lisible dans un composant `DevisPreview`
 - [ ] Ajouter un bouton "Voir devis généré" (en format JSON dans une modale ou console)
 
 ## ✅ Jour 6 – Télécharger le devis en fichier `.json`
