@@ -3,7 +3,18 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import TabClients from "./tab-clients";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 export default function Client(): JSX.Element {
   const [name, setName] = useState<string>("");
 
@@ -33,6 +44,10 @@ export default function Client(): JSX.Element {
     navigate("/");
   };
 
+  const onAdd = () => {
+    console.log("clicked");
+  };
+
   return (
     <>
       <Button
@@ -44,7 +59,40 @@ export default function Client(): JSX.Element {
         <ChevronLeftIcon />
       </Button>
 
-      <div className="flex flex-col justify-between h-50 ">
+      <TabClients />
+      <Dialog>
+        <DialogTrigger>Ajouter un nouveau client</DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Processus d'ajout d'un nouveau client</DialogTitle>
+            <DialogDescription>
+              Veuillez entrez toutes les informations demandes
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4">
+            <div className="grid gap-3">
+              <Label htmlFor="name-1">Id INC</Label>
+              <Input id="name-1" name="id" />
+            </div>
+
+            <div className="grid gap-3">
+              <Label htmlFor="name-1">Name</Label>
+              <Input id="name-1" name="name" />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="username-1">Adress</Label>
+              <Input id="username-1" name="adress" />
+            </div>
+            <div className="grid gap-3">
+              <Button variant={"outline"} onClick={onAdd}>
+                Add
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* <div className="flex flex-col justify-between h-50 ">
         <input
           placeholder="Nom du client"
           type="text"
@@ -65,7 +113,7 @@ export default function Client(): JSX.Element {
         />
 
         <button onClick={onClickButton}>Ajouter</button>
-      </div>
+      </div> */}
     </>
   );
 }
