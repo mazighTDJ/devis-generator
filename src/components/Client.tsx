@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Client(): JSX.Element {
   const [name, setName] = useState<string>("");
@@ -27,16 +27,21 @@ export default function Client(): JSX.Element {
     console.log(name, date, ndevis);
   };
 
+  const navigate = useNavigate();
+
+  const onReturn = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <Button
         variant="link"
         size="icon"
         className="size-8 absolute top-20 left-10"
+        onClick={onReturn}
       >
-        <Link to="/">
-          <ChevronLeftIcon />
-        </Link>
+        <ChevronLeftIcon />
       </Button>
 
       <div className="flex flex-col justify-between h-50 ">
