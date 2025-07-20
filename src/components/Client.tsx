@@ -18,24 +18,20 @@ import { Label } from "./ui/label";
 export default function Client(): JSX.Element {
   const [name, setName] = useState<string>("");
 
-  const [date, setDate] = useState<string>("");
+  const [idinc, setIdinc] = useState<string>("");
 
-  const [ndevis, setNdevis] = useState<number>(0);
+  const [address, setAddress] = useState<string>("");
 
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
-  const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDate(e.target.value);
+  const onChangeIdic = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIdinc(e.target.value);
   };
 
-  const onChangeNdevis = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNdevis(Number.parseInt(e.target.value));
-  };
-
-  const onClickButton = () => {
-    console.log(name, date, ndevis);
+  const onChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value);
   };
 
   const navigate = useNavigate();
@@ -45,7 +41,9 @@ export default function Client(): JSX.Element {
   };
 
   const onAdd = () => {
-    console.log("clicked");
+    console.log(idinc, name, address);
+
+    
   };
 
   return (
@@ -72,16 +70,31 @@ export default function Client(): JSX.Element {
           <div className="grid gap-4">
             <div className="grid gap-3">
               <Label htmlFor="name-1">Id INC</Label>
-              <Input id="name-1" name="id" />
+              <Input
+                id="name-1"
+                name="id"
+                value={idinc}
+                onChange={onChangeIdic}
+              />
             </div>
 
             <div className="grid gap-3">
-              <Label htmlFor="name-1">Name</Label>
-              <Input id="name-1" name="name" />
+              <Label htmlFor="name-2">Name</Label>
+              <Input
+                id="name-2"
+                name="name"
+                value={name}
+                onChange={onChangeName}
+              />
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="username-1">Adress</Label>
-              <Input id="username-1" name="adress" />
+              <Label htmlFor="username-3">Adress</Label>
+              <Input
+                id="username-3"
+                name="adress"
+                value={address}
+                onChange={onChangeAddress}
+              />
             </div>
             <div className="grid gap-3">
               <Button variant={"outline"} onClick={onAdd}>
