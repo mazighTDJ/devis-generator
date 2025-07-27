@@ -8,9 +8,17 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import { clients } from "../data";
+
+import { useClients } from "../HOOKS/useClients";
+import type { Client } from "../types";
 
 export default function TabClients(): JSX.Element {
+  const { data, isLoading, isError } = useClients();
+
+  if (isLoading) return <p>Chargement ...</p>;
+  if (isError || typeof data == "undefined")
+    return <p>Erreur lors du chargement</p>;
+
   return (
     <>
       <Table>
@@ -23,10 +31,10 @@ export default function TabClients(): JSX.Element {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {clients.map((client, index) => {
+          {data.map((client: Client, index) => {
             return (
               <TableRow className="font-thin" key={index}>
-                <TableCell>{client.id_inc}</TableCell>
+                <TableCell>{client.idInc}</TableCell>
                 <TableCell>{client.name}</TableCell>
                 <TableCell>{client.adress}</TableCell>
               </TableRow>
