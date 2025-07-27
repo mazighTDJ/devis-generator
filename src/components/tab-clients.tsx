@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "./ui/table";
 
-import { useClients } from "../HOOKS/useClients";
+import { useClients } from "../HOOKS/clientsHooks";
 import type { Client } from "../types";
 
 export default function TabClients(): JSX.Element {
