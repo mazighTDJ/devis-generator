@@ -15,12 +15,16 @@ import {
 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { useAddClient } from "../HOOKS/clientsHooks";
+import type { Client } from "../types";
 export default function Client(): JSX.Element {
   const [name, setName] = useState<string>("");
 
   const [idinc, setIdinc] = useState<string>("");
 
   const [address, setAddress] = useState<string>("");
+
+  const { mutate, isPending, isSuccess, error } = useAddClient();
 
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -40,10 +44,15 @@ export default function Client(): JSX.Element {
     navigate("/");
   };
 
+  //fonction d'ajout d'un nouveau client
   const onAdd = () => {
-    console.log(idinc, name, address);
+    const client: Client = {
+      name: name,
+      idInc: idinc,
+      adress: address,
+    };
 
-    
+    mutate(client);
   };
 
   return (
@@ -100,6 +109,11 @@ export default function Client(): JSX.Element {
               <Button variant={"outline"} onClick={onAdd}>
                 Add
               </Button>
+              {isPending && (
+                <p>Processus d'ajout d'un nouveau client est en cours...</p>
+              )}
+              {isSuccess && <p>Client ajouté avec succès !</p>}
+              {error && <p>Erreur : {error.message}</p>}
             </div>
           </div>
         </DialogContent>

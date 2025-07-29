@@ -17,7 +17,7 @@ export type Devis = {
 };
 
 export type Client = {
-  id: string;
+  id?: string;
   idInc: string;
   name: string;
   adress: string;
