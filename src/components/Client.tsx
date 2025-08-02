@@ -38,6 +38,8 @@ export default function Client(): JSX.Element {
     setAddress(e.target.value);
   };
 
+  const [err, setErr] = useState<string>("");
+
   const navigate = useNavigate();
 
   const onReturn = () => {
@@ -46,13 +48,20 @@ export default function Client(): JSX.Element {
 
   //fonction d'ajout d'un nouveau client
   const onAdd = () => {
-    const client: Client = {
-      name: name,
-      idInc: idinc,
-      adress: address,
-    };
+    if (name && idinc && address) {
+      setErr("");
+      const client: Client = {
+        name: name,
+        idInc: idinc,
+        adress: address,
+      };
 
-    mutate(client);
+      mutate(client);
+    } else {
+      setErr(
+        "Une ou plusieurs informations sont vides . Veuillez les inserer svp"
+      );
+    }
   };
 
   return (
@@ -114,6 +123,8 @@ export default function Client(): JSX.Element {
               )}
               {isSuccess && <p>Client ajouté avec succès !</p>}
               {error && <p>Erreur : {error.message}</p>}
+
+              <>{err}</>
             </div>
           </div>
         </DialogContent>
